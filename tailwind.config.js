@@ -1,7 +1,11 @@
 export default {
     content: ["./index.html", "./src/**/*.{js,jsx}"],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ["Pretendard", "sans-serif"],
+            },
+        },
     },
     plugins: [],
 };
