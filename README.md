@@ -1,12 +1,19 @@
-# React + Vite
+# GIT 컨벤션
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| **태그**      | **설명**                                                                                   |
+|--------------|-------------------------------------------------------------------------------------------|
+| `feat`       | 새로운 기능 추가                                                                           |
+| `fix`        | 버그 수정                                                                                 |
+| `docs`       | 문서 수정                                                                                 |
+| `style`      | 코드 스타일 변경 (코드 포매팅, 세미콜론 누락 등), 기능 수정이 없는 경우                    |
+| `design`     | 사용자 UI 디자인 변경 (CSS 등)                                                             |
+| `test`       | 테스트 코드 추가 및 리팩토링 테스트 코드 작업                                              |
+| `refactor`   | 코드 리팩토링                                                                              |
+| `build`      | 빌드 파일 수정                                                                             |
+| `ci`         | CI 설정 파일 수정                                                                          |
+| `perf`       | 성능 개선                                                                                 |
+| `chore`      | 빌드 업무 수정, 패키지 매니저 수정 (예: `.gitignore` 수정 등)                              |
+| `rename`     | 파일 혹은 폴더명을 수정만 한 경우                                                          |
+| `remove`     | 파일을 삭제만 한 경우                                                                      |
+| `Update README.md` | README 파일 수정은 해당 메시지로 통일 
