@@ -1,7 +1,17 @@
+/* YouTubeSans 폰트 선언 */
+@font-face {
+    font-family: "YouTubeSans";
+    src: url("/fonts/YouTubeSansSemibold.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Tailwind CSS 선언 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 전역 스타일 설정 */
 body {
     @apply font-sans;
 }

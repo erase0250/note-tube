@@ -4,6 +4,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Pretendard", "sans-serif"],
+                youtube: ["YouTubeSans", "sans-serif"],
             },
         },
     },
