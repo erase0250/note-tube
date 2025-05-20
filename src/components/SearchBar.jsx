@@ -3,17 +3,17 @@ import { BsSearch } from "react-icons/bs";
 export default function SearchBar() {
     return (
         <form className="w-full flex justify-center">
-            <div className="relative w-[70%]">
+            <div className="w-[60%] flex border border-zinc-300 rounded-full overflow-hidden bg-white">
                 <input
-                    className="w-full bg-black text-white p-4 pr-12 rounded-full placeholder-gray-400"
                     type="text"
                     placeholder="검색어를 입력하세요"
+                    className="flex-grow px-5 py-3 text-sm text-gray-800 placeholder-gray-400 bg-white outline-none"
                 />
                 <button
                     type="submit"
-                    className="absolute top-7 right-4 -translate-y-1/2 bg-zinc-600 p-2 rounded-full text-white hover:bg-zinc-500 transition"
+                    className="px-4 flex items-center justify-center bg-gray-100 border-l border-zinc-300 hover:bg-zinc-200 transition"
                 >
-                    <BsSearch size={20} />
+                    <BsSearch size={18} className="text-zinc-700" />
                 </button>
             </div>
         </form>

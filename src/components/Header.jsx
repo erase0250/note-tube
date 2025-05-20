@@ -15,7 +15,7 @@ export default function Header() {
     return (
         <>
             {/* 헤더 */}
-            <header className="w-full h-24 bg-gray-100 flex p-4 border-b border-zinc-600 items-center">
+            <header className="w-full h-24 flex p-4 items-center">
                 <button onClick={toggleSidebar}>
                     <IoIosMenu className="w-8 h-8 mr-3" />
                 </button>
