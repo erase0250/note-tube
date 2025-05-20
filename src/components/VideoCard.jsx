@@ -1,3 +1,8 @@
+import { format, register } from "timeago.js";
+import koLocale from "timeago.js/lib/lang/ko"; // 한국어
+
+register("ko", koLocale); // 한국어
+
 export default function VideoCard({ video }) {
     // 더미데이터
     // const dummy = {
@@ -22,7 +27,7 @@ export default function VideoCard({ video }) {
                 <p className="font-semibold my-1 line-clamp-2">{title}</p>
                 <p className="text-sm opacity-80">{channelTitle}</p>
                 <p className="text-sm opacity-80">
-                    {new Date(publishedAt).toLocaleDateString()}
+                    {format(publishedAt, "ko")}
                 </p>
             </div>
         </li>
