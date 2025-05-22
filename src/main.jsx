@@ -6,7 +6,6 @@ import Main from "./pages/Main.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import "./index.css";
 import VideoDetail from "./pages/VideoDetail.jsx";
-import { YoutubeApiProvider } from "./context/YoutubeApiContext.jsx";
 
 const router = createBrowserRouter([
     {
@@ -22,8 +21,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <YoutubeApiProvider>
-            <RouterProvider router={router} />
-        </YoutubeApiProvider>
+        <RouterProvider router={router} />
     </StrictMode>
 );
