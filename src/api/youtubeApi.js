@@ -35,4 +35,29 @@ export default class YoutubeApi {
         });
         return res.data.items[0];
     }
+
+    async getChannelVideos(channelId, maxResults = 10) {
+        // 해당 채널의 업로드 재생목록 ID 가져오기
+        const res = await this.channels({
+            params: {
+                part: "contentDetails",
+                id: channelId,
+            },
+        });
+        const uploadsPlaylistId =
+            res.data.items[0]?.contentDetails?.relatedPlaylists?.uploads;
+
+        if (!uploadsPlaylistId) return [];
+
+        // 업로드 재생목록에서 영상 가져오기
+        const videosRes = await this.httpClient.get("playlistItems", {
+            params: {
+                part: "snippet",
+                playlistId: uploadsPlaylistId,
+                maxResults,
+            },
+        });
+
+        return videosRes.data.items;
+    }
 }
