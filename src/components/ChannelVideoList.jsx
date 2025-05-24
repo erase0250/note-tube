@@ -3,6 +3,10 @@
 import { Link } from "react-router-dom";
 import { useYoutubeApi } from "../context/YoutubeApiContext";
 import { useEffect, useState } from "react";
+import { format, register } from "timeago.js";
+import koLocale from "timeago.js/lib/lang/ko"; // 한국어
+
+register("ko", koLocale); // 한국어
 
 export default function ChannelVideoList({ channelId }) {
     const { youtube } = useYoutubeApi();
@@ -39,6 +43,9 @@ export default function ChannelVideoList({ channelId }) {
                                     </p>
                                     <p className="text-gray-500 mt-1 text-xs">
                                         {video.channelTitle}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        {format(video.publishedAt, "ko")}
                                     </p>
                                 </div>
                             </Link>
