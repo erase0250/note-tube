@@ -1,6 +1,17 @@
 import { useYoutubeApi } from "../context/YoutubeApiContext";
 import { useQuery } from "@tanstack/react-query";
 
+// 구독자 수 포맷 함수
+function formatSubscribers(subscriberCount) {
+    const count = Number(subscriberCount);
+    if (count >= 10000) {
+        return `${Math.floor(count / 10000)}만명`;
+    } else if (count >= 1000) {
+        return `${(count / 10000).toFixed(1)}만명`;
+    } else {
+        return `${count.toLocaleString()}명`;
+    }
+}
 export default function ChannelInfo({ id, name }) {
     const { youtube } = useYoutubeApi();
     const { data: channel } = useQuery({
@@ -21,10 +32,10 @@ export default function ChannelInfo({ id, name }) {
                 />
             )}
             <div className="flex flex-col">
-                <p className="text-md font-medium">{name}</p>
+                <p className="font-medium">{name}</p>
                 {subscribers && (
-                    <p className="text-sm text-gray-500">
-                        구독자 {Number(subscribers).toLocaleString()}명
+                    <p className="text-xs text-gray-500">
+                        구독자 {formatSubscribers(subscribers)}
                     </p>
                 )}
             </div>
