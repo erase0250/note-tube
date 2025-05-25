@@ -60,4 +60,8 @@ export default class YoutubeApi {
 
         return videosRes.data.items;
     }
+
+    async search(params) {
+        return this.httpClient.get("search", params);
+    }
 }
