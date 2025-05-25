@@ -14,6 +14,7 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
         children: [
             { index: true, element: <Main /> }, // 메인 페이지
+            { path: "video/:keyword", element: <Main /> }, // 검색 시 보여주는 메인 페이지
             { path: "video/:videoId", element: <VideoDetail /> }, // 상세 페이지
         ],
     },
