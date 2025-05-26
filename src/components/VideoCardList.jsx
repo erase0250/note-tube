@@ -50,7 +50,7 @@ export default function VideoCardList({ keyword }) {
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4">
             {videos.map((video) => (
                 <VideoCard
-                    key={video.id.videoId || video.id.videoId}
+                    key={video.id.videoId || video.id}
                     video={{
                         ...video,
                         id: video.id.videoId || video.id,
