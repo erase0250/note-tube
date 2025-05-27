@@ -4,16 +4,6 @@ import VideoCard from "./VideoCard";
 
 export default function VideoCardList({ keyword }) {
     const [videos, setVideos] = useState([]);
-
-    // 테스트용 - mock data
-    // useEffect(() => {
-    //     fetch("/mock/most-popular-data.json")
-    //         .then((res) => res.json())
-    //         .then((data) => setVideos(data.items))
-    //         .catch((err) => console.error("JSON 로딩 실패", err));
-    // }, []);
-
-    // 서비스용 - Youtube API
     const { youtube } = useYoutubeApi();
 
     useEffect(() => {
