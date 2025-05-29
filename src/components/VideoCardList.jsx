@@ -38,15 +38,18 @@ export default function VideoCardList({ keyword }) {
 
     return (
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4">
-            {videos.map((video) => (
-                <VideoCard
-                    key={video.id.videoId || video.id}
-                    video={{
-                        ...video,
-                        id: video.id.videoId || video.id,
-                    }}
-                />
-            ))}
+            {videos.map((video) => {
+                const id = video.id.videoId || video.id; // 문자열 ID
+                return (
+                    <VideoCard
+                        key={id}
+                        video={{
+                            ...video,
+                            id,
+                        }}
+                    />
+                );
+            })}
         </ul>
     );
 }

@@ -28,7 +28,7 @@ export default function VideoCard({ video }) {
         <li
             className="w-full cursor-pointer"
             onClick={() => {
-                navigate(`video/${video.id}`, { state: { video } });
+                navigate(`/video/${video.id}`, { state: { video } });
             }}
         >
             <img

@@ -8,7 +8,10 @@ export default function SearchBar() {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate(`/video/${text}`);
+        const trimmed = text.trim();
+        if (trimmed) {
+            navigate(`/search/${trimmed}`);
+        }
     };
 
     useEffect(() => setText(keyword || ""), [keyword]);
