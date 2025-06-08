@@ -7,6 +7,13 @@ import NotFound from "./pages/NotFound.jsx";
 import "./index.css";
 import VideoDetail from "./pages/VideoDetail.jsx";
 
+// 페이지 최초 로딩 시 다크모드 설정
+if (localStorage.theme === "dark") {
+    document.documentElement.classList.add("dark");
+} else {
+    document.documentElement.classList.remove("dark");
+}
+
 const router = createBrowserRouter([
     {
         path: "/",

@@ -8,14 +8,14 @@ const queryClient = new QueryClient();
 
 function App() {
     return (
-        <>
-            <QueryClientProvider client={queryClient}>
-                <YoutubeApiProvider>
+        <QueryClientProvider client={queryClient}>
+            <YoutubeApiProvider>
+                <div className="bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen transition-colors duration-300">
                     <Header />
                     <Outlet />
-                </YoutubeApiProvider>
-            </QueryClientProvider>
-        </>
+                </div>
+            </YoutubeApiProvider>
+        </QueryClientProvider>
     );
 }
 
