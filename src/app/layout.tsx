@@ -10,12 +10,12 @@ const pretendard = localFont({
     variable: "--font-pretendard",
 });
 
-// YouTubeSans 폰트
-const youtubeSans = localFont({
-    src: "../../public/fonts/youtube/YouTubeSansBold.otf",
+// 로고 폰트
+const youtube = localFont({
+    src: "../../public/fonts/youtube/AlternateGothicNo2D.ttf",
     display: "swap",
     weight: "700",
-    variable: "--font-youtubesans",
+    variable: "--font-youtube",
 });
 
 // 메타데이터
@@ -32,7 +32,7 @@ export default function RootLayout({
     return (
         <html
             lang="ko"
-            className={`${pretendard.variable} ${youtubeSans.variable}`}
+            className={`${pretendard.variable} ${youtube.variable}`}
         >
             <body>{children}</body>
         </html>
