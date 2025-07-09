@@ -1,8 +1,26 @@
-export default function Home() {
+import Layout from "@/components/Layout";
+import VideoCard from "@/components/VideoCard/VideoCard";
+
+export default function Page() {
+    const dummyArray = Array.from({ length: 20 });
+
     return (
-        <>
-            <div>Home</div>
-            <div className="logo text-2xl">NoteTube 폰트 적용</div>
-        </>
+        <Layout>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+                {dummyArray.map((_, idx) => (
+                    <VideoCard
+                        key={idx}
+                        thumbnail="/images/dummy/video-thumbnail.jpg"
+                        title={
+                            "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀"
+                        }
+                        channelName="채널이름"
+                        views="67만회"
+                        uploadedAt="1시간 전"
+                        channelThumbnail="/images/dummy/channel-thumbnail.jpg"
+                    />
+                ))}
+            </div>
+        </Layout>
     );
 }
