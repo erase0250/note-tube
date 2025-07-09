@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+    --color-primary: #333333;
+    --color-secondary: #666666;
+    --color-background: #f9fafb;
+    --color-logo: #ff0032;
+    --color-border: #e5e7eb; /* 구분선 */
+}
+
 .logo {
-    font-family: var(--font-youtubesans);
+    font-family: var(--font-youtube);
+}
+
+.shadow-right {
+    box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.1);
 }
