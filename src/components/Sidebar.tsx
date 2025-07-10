@@ -1,7 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
-import FolderIcon from "@mui/icons-material/Folder";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import AddIcon from "@mui/icons-material/Add";
+import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
 
 // 더미데이터
 const dummyFolders = [
@@ -12,60 +14,68 @@ const dummyFolders = [
 ];
 
 export default function Sidebar() {
+    const [selectedIdx, setSelectedIdx] = useState<number | null>(null); // null은 '모든 영상' 탭 선택 상태
+
     return (
         // 사이드바 높이 = 브라우저 전체 높이 - 헤더 높이 (h-[calc(100vh-4rem)])
-        <aside className="fixed top-16 left-0 w-52 h-[calc(100vh-4rem)] p-5 bg-white shadow-right rounded-tr-2xl overflow-y-auto">
-            <div className="space-y-3">
+        <aside className="fixed top-16 left-0 w-52 h-[calc(100vh-4rem)] px-4 py-3 bg-white overflow-y-auto transition-all">
+            <div className="space-y-2">
                 {/* 모든 영상 */}
-                <button className="w-full flex items-center justify-between text-sm font-semibold text-primary hover:bg-gray-100 px-1 py-2 rounded">
+                <div
+                    onClick={() => setSelectedIdx(null)}
+                    className={`w-full flex items-center justify-between text-sm font-medium text-primary px-1 py-2 rounded cursor-pointer transition ${
+                        selectedIdx === null
+                            ? "bg-selected"
+                            : "hover:bg-selected"
+                    }`}
+                >
                     <div className="flex items-center gap-2">
                         <HomeIcon />
                         <span>모든 영상</span>
                     </div>
-                    <KeyboardArrowRightIcon
-                        fontSize="small"
-                        className="text-secondary"
-                    />
-                </button>
+                </div>
 
                 {/* 구분선 */}
                 <div className="w-full border-b border-border"></div>
 
-                {/* 내 폴더 */}
-                <div className="w-full flex items-center justify-between text-sm font-semibold text-primary px-1 py-2">
+                {/* 재생목록 */}
+                <div className="w-full flex items-center justify-between text-sm font-medium text-primary px-1 py-2">
                     <div className="flex items-center gap-2">
-                        <FolderIcon />
-                        <span>내 폴더</span>
+                        <PlaylistPlayIcon />
+                        <span>재생목록</span>
                     </div>
+                    <button className="w-7 h-7 flex items-center justify-center hover:text-gray-700 hover:bg-selected rounded-full p-1 transition cursor-pointer">
+                        <AddIcon
+                            fontSize="inherit"
+                            className="text-[10px] text-secondary"
+                        />
+                    </button>
                 </div>
 
-                {/* 폴더 리스트 */}
+                {/* 재생목록 리스트 */}
                 <ul className="space-y-1">
-                    {dummyFolders.map((cat, idx) => (
-                        <div
-                            key={idx}
-                            className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 px-1 py-2 rounded"
-                        >
-                            <li className="w-full flex items-center gap-5 text-sm text-primary">
-                                <span
-                                    className={`w-2 h-2 rounded-full ml-1 ${cat.color}`}
-                                />
-                                {cat.name}
-                            </li>
-                            <KeyboardArrowRightIcon
-                                fontSize="small"
-                                className="text-secondary"
-                            />
-                        </div>
-                    ))}
+                    {dummyFolders.map((cat, idx) => {
+                        const isSelected = idx === selectedIdx;
+                        return (
+                            <div
+                                key={idx}
+                                onClick={() => setSelectedIdx(idx)}
+                                className={`flex items-center cursor-pointer px-1 py-2 rounded transition ${
+                                    isSelected
+                                        ? "bg-selected"
+                                        : "hover:bg-selected"
+                                }`}
+                            >
+                                <li className="w-full flex items-center gap-3 ml-2 text-sm text-primary">
+                                    <span
+                                        className={`w-2 h-2 rounded-full ml-1 ${cat.color}`}
+                                    />
+                                    {cat.name}
+                                </li>
+                            </div>
+                        );
+                    })}
                 </ul>
-
-                {/* TODO: UI 수정 */}
-                {/* 새 폴더 추가 버튼 */}
-                <button className="w-full flex items-center gap-1 text-xs text-secondary mt-4 px-1 py-2 hover:underline hover:text-gray-700 transition">
-                    <AddCircleOutlineIcon fontSize="small" />
-                    <span>새 폴더 추가 (UI 수정)</span>
-                </button>
             </div>
         </aside>
     );
