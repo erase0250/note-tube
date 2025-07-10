@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Header />
 
                 {/* 메인 */}
-                <main className="flex-1 overflow-y-auto p-6 mt-16">
+                <main className="flex-1 overflow-y-auto p-4 mt-16">
                     {children}
                 </main>
             </div>

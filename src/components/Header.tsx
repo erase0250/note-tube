@@ -4,7 +4,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 
 export default function Header() {
     return (
-        <header className="fixed top-0 left-0 right-0 flex items-center justify-between border-b border-border backdrop-blur-2xl bg-white/70 z-50 h-16 px-5">
+        <header className="fixed top-0 left-0 right-0 flex items-center justify-between backdrop-blur-2xl bg-white/70 z-50 h-16 px-5">
             {/* 로고 */}
             <div className="flex items-center gap-1">
                 <img className="w-8 h-8" src="/icons/logo.svg" alt="로고" />

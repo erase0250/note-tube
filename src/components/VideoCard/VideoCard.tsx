@@ -18,8 +18,8 @@ export default function VideoCard({
     uploadedAt,
 }: VideoCardProps) {
     return (
-        <div className="w-full max-w-xs rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer bg-white">
-            <div className="relative w-full h-42">
+        <div className="w-full rounded-lg overflow-hidden shadow hover:shadow-lg transition cursor-pointer bg-white">
+            <div className="relative w-full h-52 2xl:h-[296px]">
                 <Image
                     src={thumbnail}
                     alt={title}
